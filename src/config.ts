@@ -6,7 +6,10 @@
  */
 import userConfig from "@/astro-paper.config";
 import type { ResolvedAstroPaperConfig } from "./types/config";
-import { PUBLIC_GOOGLE_SITE_VERIFICATION } from "astro:env/client";
+import {
+  PUBLIC_GOOGLE_SITE_VERIFICATION,
+  PUBLIC_CF_WEB_ANALYTICS_TOKEN,
+} from "astro:env/client";
 
 const DEFAULT_OG_IMAGE = "default-og.jpg";
 
@@ -19,6 +22,8 @@ const config: ResolvedAstroPaperConfig = {
     dir: userConfig.site.dir ?? "ltr",
     googleVerification:
       userConfig.site.googleVerification || PUBLIC_GOOGLE_SITE_VERIFICATION,
+    cfWebAnalyticsToken:
+      userConfig.site.cfWebAnalyticsToken || PUBLIC_CF_WEB_ANALYTICS_TOKEN,
   },
   posts: {
     perPage: userConfig.posts?.perPage ?? 4,

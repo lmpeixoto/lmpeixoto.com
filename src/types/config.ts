@@ -19,6 +19,11 @@ interface SiteConfig {
   dir?: "ltr" | "rtl" | "auto";
   /** Google Search Console verification meta tag value */
   googleVerification?: string;
+  /**
+   * Cloudflare Web Analytics beacon token.
+   * Defaults to the PUBLIC_CF_WEB_ANALYTICS_TOKEN env variable.
+   */
+  cfWebAnalyticsToken?: string;
 }
 
 interface PostsConfig {
@@ -115,7 +120,7 @@ type ResolvedSiteConfig = Required<
     | "ogImage"
   >
 > &
-  Pick<SiteConfig, "profile" | "googleVerification">;
+  Pick<SiteConfig, "profile" | "googleVerification" | "cfWebAnalyticsToken">;
 
 export interface ResolvedAstroPaperConfig {
   site: ResolvedSiteConfig;

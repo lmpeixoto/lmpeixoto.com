@@ -95,6 +95,18 @@ const rssHref = getRelativeLocaleUrl(
       )
     }
 
+    <!-- Cloudflare Web Analytics: free, cookieless, no consent banner needed -->
+    {
+      site.cfWebAnalyticsToken && (
+        <script
+          is:inline
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon={JSON.stringify({ token: site.cfWebAnalyticsToken })}
+        />
+      )
+    }
+
     <!--
       Inline FOUC-prevention script: sets data-theme on <html> before
       the browser paints. Runs synchronously, no defer/async.
