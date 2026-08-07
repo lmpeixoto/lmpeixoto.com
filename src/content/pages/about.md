@@ -5,7 +5,7 @@ description: "A bit about me and this blog."
 
 I'm Luís Peixoto, a Site Reliability Engineer from Portugal.
 
-By day I keep a high-traffic sportsbook platform reliable at FanDuel ([Blip](https://blip.pt)): observability, SLOs, incident response, and infrastructure-as-code across hybrid cloud (AWS + Outposts) and Kubernetes. Lately that's meant telemetry pipelines (OpenTelemetry Collector, Redpanda Connect) feeding a Grafana LGTM stack, a reusable SLO framework built with Terraform modules, and agentic-AI tooling for operational work.
+By day I keep a high-traffic sportsbook platform reliable at FanDuel ([Blip](https://blip.pt)): observability, SLOs, incident response, and infrastructure-as-code across hybrid cloud and Kubernetes.
 
 I got here through a side door: a pharmacy degree, some bioinformatics, then a pivot into engineering — DevOps at Bosch first, SRE after. Along the way I picked up CKA, CKAD, and AWS Solutions Architect certifications, and a soft spot for distributed systems (Java, Kafka Streams), Terraform, Python, and Go.
 
