@@ -20,6 +20,6 @@ I write about what it teaches me: the incidents, the wrong hypotheses, and the w
 ## Elsewhere
 
 - GitHub: [github.com/lmpeixoto](https://github.com/lmpeixoto)
-- LinkedIn: [in/luís-peixoto-04b29041](https://www.linkedin.com/in/lu%C3%ADs-peixoto-04b29041/)
+- LinkedIn: [in/lmpeixoto](https://www.linkedin.com/in/lmpeixoto/)
 
 The name comes from *Os Lusíadas*, by Luís de Camões — Adamastor is the giant of the Cape of Storms. If you sail toward hard things on purpose, you might as well name them properly.

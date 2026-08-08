@@ -51,52 +51,7 @@ AdamastorX is not a product. Nobody will ever buy it, and that's the point. It's
 
 The setup exists to create that realism: a single-node k3s cluster on the laptop, provisioned with Terraform. ArgoCD keeps the cluster in sync with Git. The desired state lives in the repository. On top of that sit Spring Boot and Python services, Kafka, PostgreSQL, Redis, and an observability stack: Prometheus, Grafana, Loki, Tempo, and Pyroscope for continuous profiling. Not because the list looks good, but because the system needs enough real moving parts to expose the kinds of failures I'm trying to learn from.
 
-```
-                         GitHub
-                    4 public repos
-                  (source of truth + CI)
-                           │
-                         push
-                           ▼
-                    ┌─────────────┐
-                    │   ArgoCD    │
-                    │   GitOps    │
-                    └──────┬──────┘
-                           │
-                           ▼
-   ┌──────────────────────────────────────────────────┐
-   │             k3s — one old laptop, at home        │
-   │                                                  │
-   │  Traefik (ingress) · cert-manager (TLS)          │
-   │                                                  │
-   │  ┌─────────────┐      ┌──────────────────────┐   │
-   │  │     API     │─────▶│ PostgreSQL · Redis   │   │
-   │  └──────┬──────┘      └──────────────────────┘   │
-   │         │                                        │
-   │         ▼                                        │
-   │      ┌───────┐                                   │
-   │      │ Kafka │◀──── Market pipeline              │
-   │      └───┬───┘                                   │
-   │          │ consumer lag                          │
-   │          ▼                                       │
-   │      ┌───────┐                                   │
-   │      │ KEDA  │                                   │
-   │      └───┬───┘                                   │
-   │          │ scale                                 │
-   │          ▼                                       │
-   │      ┌─────────┐                                 │
-   │      │ Workers │                                 │
-   │      └─────────┘                                 │
-   │                                                  │
-   │  clinvar-service ── genomic variants             │
-   │                                                  │
-   │  Prometheus · Grafana · Loki · Tempo             │
-   │  Pyroscope (profiling) · Alertmanager            │
-   └──────────────────────────────────────────────────┘
-                           │
-                           ▼
-                     📱 Alerts / SLOs
-```
+![AdamastorX architecture](../../assets/images/adamastorx-architecture.png)
 
 A snapshot, since this is the "look at my cluster" paragraph anyway: four public repos, eleven services, five Kafka topics, three documented chaos scenarios, and 32 architecture decision records, which are short documents recording why each significant decision was made, including the ones later reversed. Reversals stay in the record too.
 
