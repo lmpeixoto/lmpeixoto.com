@@ -49,9 +49,9 @@ architecture decision record already contained the verdict:
 "Not yet worth it as a standing piece of this cluster's architecture at
 its real current scale."
 
-The recommendation was specific and two-part: extract the data that Beyla
-comparison was worth, then decommission it. For Mimir, stop investing further
-and wind it down.
+The recommendation was specific and two-part: extract the data that the
+Beyla comparison was worth, then decommission it. For Mimir, stop
+investing further and wind it down.
 
 Nothing in that analysis was wrong.
 
