@@ -49,9 +49,9 @@ architecture decision record already contained the verdict:
 "Not yet worth it as a standing piece of this cluster's architecture at
 its real current scale."
 
-The recommendation was specific and two-part: extract whatever article
-material the Beyla comparison was worth, then decommission it. For
-Mimir, stop investing further and wind it down.
+The recommendation was specific and two-part: extract the data that Beyla
+comparison was worth, then decommission it. For Mimir, stop investing further
+and wind it down.
 
 Nothing in that analysis was wrong.
 
@@ -86,11 +86,8 @@ I'd even written the decision down.
 In the project backlog, dated and attached to the relevant item, my
 answer was:
 
-"não removas Mimir… atenção não destruas mimir nem beyla, quero testar
-essas tecnologias"
-
-Don't remove Mimir. Don't touch Beyla either. I want to keep testing
-these technologies.
+"Don't remove Mimir. Don't touch Beyla either. I want to keep testing
+these technologies."
 
 Six days later, another independent reviewer arrived at the same
 recommendation. It had no memory of the first review or my response to
@@ -99,44 +96,7 @@ decision before making its recommendation.
 
 And that was the near-miss.
 
-## Why the review wasn't wrong
-
-This distinction matters.
-
-The review's technical analysis was sound — both numbers above are real,
-and so is the verdict already sitting in Mimir's own ADR.
-
-If the question is simply — does this component currently justify its
-operational cost — then removing both was the correct answer. I'm not
-going to pretend otherwise just to make the story more dramatic.
-
-But that wasn't actually the only criterion I was using.
-
-Some of what I run this cluster for isn't measured in dashboards or
-alerts. Sometimes the value is: did I learn something by running this
-technology under real conditions? Did I see what happens when it
-consumes too much memory? Did I understand its failure modes on a
-single, resource-constrained node?
-
-That's a legitimate reason to keep a component alive beyond the point
-where a pure cost-versus-output analysis would remove it.
-
-The problem was that this reasoning existed mostly in my head and in one
-line of backlog prose. It wasn't part of the evidence the reviewer was
-evaluating. The reviewer did exactly what I'd asked it to do — it looked
-at the live system, looked at the evidence, and made the best
-recommendation it could. It simply couldn't know about a criterion that
-wasn't represented in the process.
-
-There's another important limitation worth mentioning. The review
-explicitly scoped itself to spot-checking a representative sample of the
-project's history rather than rereading everything. That was a
-deliberate trade-off, not a hidden failure. My override happened to be
-in the exact same file the reviewer was auditing, just not in the
-section it loaded during that pass.
-
-Careful and evidence-based isn't the same as exhaustive. That distinction
-became important.
+The review's technical analysis was sound, though — both numbers were real, and so was Mimir's own "not yet worth it" verdict. Removing both would have been the correct answer to the question the review was actually asked. It just wasn't the only question I was answering, and the difference lived in my head and one line of backlog prose, not in the evidence the review actually read.
 
 ## So I audited the process itself
 
@@ -217,6 +177,21 @@ I think that's what happens by default when the fastest path is "just do
 the thing," and nothing in the moment forces the slower, more deliberate
 path described in the documentation.
 
+## The documentation kept saying things that weren't true
+
+Not every drift in this project was about a component nobody delegated to. Some of it was more basic: tickets and architecture docs stating things that had already stopped being real, caught only when a staff-level review actually re-read them against the live system instead of trusting the prose.
+
+`docs/architecture/overview.md` is the clearest case. A staff-level review in early August found it still claiming M13's five services "do not exist yet" — all five had been merged, deployed, and live for two days by then. That wasn't the first time either: the same file had drifted the same way twice before, both supposedly fixed. Three recurrences of the identical drift, on the same file, is not bad luck.
+
+The same review found the backlog itself — this project's most carefully maintained document — carrying one item duplicated verbatim, both copies marked Done; a bad edit an hour earlier had re-emitted the whole block. Its own second pass, re-checking the first rather than trusting it, found something worse sitting right next to it: a different item's heading didn't exist at all, swallowed into the tail of its neighbor's text, invisible until someone went looking specifically.
+
+A quieter version of the same failure recurs across nearly every staff review since. Work that was actually finished sat in the backlog marked as if it never happened — two items fixed weeks earlier, only marked Done when a later sweep found them; a whole CI job the same way; and, today, this project's entire windowed Kafka Streams pipeline — built, shipped, running in production with real dashboards — sitting unmarked until this same review found it by accident, checking something else entirely.
+
+The freshest instance is today's own. An architecture decision had explicitly stated a correction that needed to reach the backlog. It never did — the backlog kept citing the old, now-wrong reasoning for a real blocker, a whole milestone's stated dependency, until this same day's staff review traced the citation back to its actual source instead of taking it on faith.
+
+None of this was caught by the PR review that otherwise holds up. Every one of these needed something slower: a full, deliberate re-read of the project against its own live state, not a diff. That's expensive, which is exactly why it only happens when I schedule a staff-level review on purpose, not on any real cadence.
+
+
 ## What actually survived
 
 The process wasn't entirely imaginary. One part had survived contact
@@ -257,8 +232,7 @@ better outcome than either side of the argument on its own.
 Beyla stayed exactly where it was. Mimir got something better than an
 indefinite "keep testing" decision: instead of removing it immediately, I
 gave it a concrete exit condition. It stays until it stops serving the
-one remaining purpose it has — providing material for an AI on-call
-agent's grading corpus — and then it gets decommissioned through a
+one remaining purpose it has and then it gets decommissioned through a
 rollback path that's already documented.
 
 The review brought the evidence. My previous decision brought the
