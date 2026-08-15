@@ -22,7 +22,7 @@ Today, I asked an AI agent to run an independent, staff-level audit of
 AdamastorX.
 
 AdamastorX is the distributed system [I described building in my last
-post](https://lmpeixoto.com/posts/building-adamastorx/) — one laptop,
+post](https://lmpeixoto.com/posts/building-adamastorx/ | [github.com/AdamastorX](https://github.com/AdamastorX).) — one laptop,
 with AI writing most of the code while I stay responsible for the
 architecture, the decisions, and what happens when things break.
 
@@ -282,18 +282,6 @@ I didn't do the equivalent for the personas, and I want to be honest
 about why: there wasn't an equally clean mechanical fix sitting right
 there.
 
-The closest candidate — a CI check requiring every architecture-labeled
-pull request to carry a `Persona: architect` marker — only verifies that
-someone typed the right label, not that the decision actually went
-through an isolated context the way the workflow describes. That's
-friction against forgetting to *claim* the process was followed, not
-friction against skipping it. I'd rather leave that one open and say so
-than ship a check that would let me feel done about it.
-
-So: one real fix, mechanical, already live. One real gap, named, still
-open, rather than papered over with a check that only checks the
-paperwork.
-
 ## One final note
 
 This is probably the first AdamastorX post where the project itself
@@ -307,6 +295,8 @@ And I think that's a much more interesting experiment than whether an AI
 can write a Kubernetes manifest.
 
 ---
+
+Everything is public: [github.com/AdamastorX](https://github.com/AdamastorX).
 
 *Real evidence, for anyone who wants to check any of this rather than
 take my word for it: the original override is backlog item #120, dated
