@@ -310,19 +310,23 @@ can write a Kubernetes manifest.
 Everything is public: [github.com/AdamastorX](https://github.com/AdamastorX).
 
 *Real evidence, for anyone who wants to check any of this rather than
-take my word for it: the original override is backlog item #120, dated
-and verbatim; the stack-evaluation recommendation is
-`docs/reviews/2026-08-15-operate-followthrough-and-m12-reality.md` §10;
-Mimir's own "not yet worth it" verdict and rollback path are ADR 0038;
-the resolved conditional-decommission decision is backlog item #135; the
-workflow and persona definitions are `.claude/WORKFLOW.md` and
-`.claude/agents/*.md`; the project board's rules are
-`docs/roadmap/project-board.md`; the 12-of-146 status count is a live
-query against the real GitHub Project; the four review catches above are
-real, ordinary pull requests from this same month; the board-automation
-fix is ADR 0042, including the exact six-workflow live inventory it
-found and the API limitation that means enabling them still took a
-manual pass through the GitHub UI, not a script.*
+take my word for it:*
+
+- **The Beyla/Mimir override** — backlog item #120, dated and verbatim.
+- **The stack-evaluation recommendation** —
+  `docs/reviews/2026-08-15-operate-followthrough-and-m12-reality.md` §10.
+- **Mimir's "not yet worth it" verdict and rollback path** — ADR 0038.
+- **The resolved conditional-decommission decision** — backlog item #135.
+- **Workflow and persona definitions** — `.claude/WORKFLOW.md` and
+  `.claude/agents/*.md`.
+- **The project board's rules** — `docs/roadmap/project-board.md`.
+- **The 12-of-146 status count** — a live query against the real GitHub
+  Project.
+- **The four review catches** — real, ordinary pull requests from this
+  same month.
+- **The board-automation fix** — ADR 0042, including the six-workflow
+  live inventory it found and the API limitation that meant enabling
+  them still took a manual pass through the GitHub UI, not a script.
 
 **A note on AI:** Yes, I used AI to write this article too. It helped
 with structure, wording, and editing; the experiences, decisions, and
