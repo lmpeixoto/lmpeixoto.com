@@ -191,6 +191,17 @@ The freshest instance is today's own. An architecture decision had explicitly st
 
 None of this was caught by the PR review that otherwise holds up. Every one of these needed something slower: a full, deliberate re-read of the project against its own live state, not a diff. That's expensive, which is exactly why it only happens when I schedule a staff-level review on purpose, not on any real cadence.
 
+## And this isn't an AI problem
+
+None of this is new. Large software projects have dealt with documentation drift for as long as I've been working in them — architecture diagrams going stale, runbooks describing systems that no longer exist, ADRs explaining decisions that were later reversed, tickets staying open long after the work was actually done. Teams end up maintaining two sources of truth and, eventually, only keep one of them honest.
+
+AI didn't invent any of that.
+
+What AI changes is the speed at which the gap becomes visible. When an agent can implement in an evening what used to take a week, the system moves faster than the documentation around it, unless something explicit keeps the two in sync.
+
+There's a second effect, too. A human on a team can often compensate for stale documentation — someone remembers the diagram is six months out of date, or that the runbook stopped being accurate after the last migration. An agent doesn't have that memory unless it's actually written down somewhere it can read.
+
+So the real finding isn't that AI is bad at following process. It's that AI exposes, faster than a human team usually notices, exactly which parts of a process are enforced and which were only ever documented.
 
 ## What actually survived
 
