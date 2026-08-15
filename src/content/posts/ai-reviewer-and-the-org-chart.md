@@ -1,7 +1,7 @@
 ---
 author: Luís Peixoto
 pubDatetime: 2026-08-15T21:00:00+01:00
-title: "My AI reviewer wanted to delete part of my experiment. Then I audited the process."
+title: "My AI reviewer wasn't wrong. My process was."
 featured: true
 draft: false
 tags:
@@ -22,7 +22,7 @@ Today, I asked an AI agent to run an independent, staff-level audit of
 AdamastorX.
 
 AdamastorX is the distributed system [I described building in my last
-post](https://lmpeixoto.com/posts/building-adamastorx/ | [github.com/AdamastorX](https://github.com/AdamastorX).) — one laptop,
+post](https://lmpeixoto.com/posts/building-adamastorx/) — one laptop,
 with AI writing most of the code while I stay responsible for the
 architecture, the decisions, and what happens when things break.
 
